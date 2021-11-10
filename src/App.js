@@ -6,6 +6,7 @@ import Register from './components/SignIn/Register/Register';
 import Login from './components/SignIn/Login/Login';
 import Header from './components/Shared/Header/Header';
 import AuthProvider from './context/AuthProvider';
+import Products from './components/Pages/Products/Products';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route exact path="/home">
               <Home/>
+          </Route>
+          <Route exact path="/products">
+              <Products/>
           </Route>
         <Route path="/register">
           <Register/>
