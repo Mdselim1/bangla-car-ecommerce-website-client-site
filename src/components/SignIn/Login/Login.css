@@ -1,0 +1,20 @@
+.input-form-box input{
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid #FC427B;
+}
+.log-title{
+    color: #FC427B;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.input-form-box input[type="submit"]{
+    background: #FC427B;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
