@@ -48,7 +48,7 @@ const Register = () => {
                             </form>
                             <div>
                                 <p className="text-center fs-5">Already Have An account ?
-                                    <Link className="text-decoration-none fw-bold" to="/login"> Log In</Link>
+                                    <Link className="text-decoration-none fw-bold" to="/login"> Log In <i className="fas fa-arrow-right ms-2"></i></Link>
                                 </p>
                             </div>
                             <div className="text-center mt-3">

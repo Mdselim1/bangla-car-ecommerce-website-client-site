@@ -57,11 +57,11 @@ const AuthData = () => {
             if (user) {
                 setUser(user);
             } else {
-                setUser('')
+                setUser({})
             }
             setLoader(false)
         });
-        return unsubscribed;
+        return ()=> unsubscribed;
     },[])
 
     const HandleLogOutUser = () => {

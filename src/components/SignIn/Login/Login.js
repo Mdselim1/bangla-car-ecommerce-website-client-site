@@ -39,7 +39,7 @@ const Login = () => {
                             </form>
                             <p className="text-center fs-5">No account ?
                                 <Link
-                                    className="text-decoration-none fw-bold" to="/register"> Register Now</Link>
+                                    className="text-decoration-none fw-bold" to="/register"> Register Now <i className="fas fa-arrow-right ms-2"></i></Link>
                                 </p>
                         </div>
                         <div className="text-center mt-3">
