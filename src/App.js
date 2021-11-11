@@ -7,6 +7,7 @@ import Login from './components/SignIn/Login/Login';
 import Header from './components/Shared/Header/Header';
 import AuthProvider from './context/AuthProvider';
 import Products from './components/Pages/Products/Products';
+import ProductCart from './components/Pages/ProductCart/ProductCart';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/products">
               <Products/>
+          </Route>
+          <Route exact path="/products/:id">
+              <ProductCart/>
           </Route>
         <Route path="/register">
           <Register/>

@@ -15,7 +15,7 @@ const Banner = () => {
                         <h1 className="mt-5 mb-3">Welcome to bangla Cars</h1>
                         <h2 className="text-capitalize mb-3">The wind is not even close to us</h2>
                         <p>Regardless of your car business, let Divi take care of the online presence and help you win over new potential clients with its professionalism and sophistication. To take things a step further, you can also customize layouts to your needs and requirements with the integrated page builder.</p>
-                        <Link to="/products" className="common-button text-decoration-none mt-4">Explore More <i class="fas fa-arrow-circle-right ms-2"></i></Link>
+                        <Link to="/products" className="common-button text-decoration-none mt-4">Explore More <i className="fas fa-arrow-circle-right ms-2"></i></Link>
                         </div>
                     </Col>
                     <Col lg={5}>
