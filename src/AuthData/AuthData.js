@@ -97,7 +97,7 @@ const AuthData = () => {
             })
             .finally(() => setLoader(false));
     }, []);
-
+ 
     return {
         LogInEmailAndPassword,
         user, error, setError,products,
