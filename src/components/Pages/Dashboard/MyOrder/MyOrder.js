@@ -15,14 +15,13 @@ const MyOrder = () => {
         axios.get(`http://localhost:8000/order/?email=${user.email}`)
             .then(result => {
                 setCars(result.data);
-                console.log(result.data);
             });
 
-    },[user.email])
+    }, [user.email]);
 
     return (
         <div>
-            <h1 className="text-center py-5 head-title">Your Order Products</h1>
+            <h1 className="text-center py-5 head-title">My Order Products</h1>
             <Container fluid>
             <Row>
                 {

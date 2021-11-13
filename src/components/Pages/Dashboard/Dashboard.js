@@ -11,6 +11,8 @@ import './Dashboard.css';
 import useAuth from '../../../context/useAuth';
 import AddCars from './AddCars/AddCars';
 import AllService from '../../HomePage/HomeProducts/AllService/AllService';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import ManageAllOrders from './ManageAllOrders/ManageAllOrders';
 
 
 
@@ -34,8 +36,13 @@ const Dashboard = () => {
                       
                         <Link to={`${url}/review`}>Review <i className="fas fa-eye ms-3"></i></Link>
                         
-                       <Link to={`${url}/allservice`}>All Service <i className="fas fa-plus ms-3"></i></Link>
-                       <Link to={`${url}/addservice`}>Add Service <i className="fas fa-plus ms-3"></i></Link>
+                        <Link to={`${url}/allservice`}>Manage Products <i className="fas fa-tasks ms-3"></i></Link>
+                        
+                        <Link to={`${url}/makeadmin`}>Make Admin <i className="fas fa-marker ms-3"></i></Link>
+                        
+                        <Link to={`${url}/manageallorders`}>Manage All Orders <i className="fas fa-tasks ms-3"></i></Link>
+                        
+                       <Link to={`${url}/addservice`}>Add A Product <i className="fas fa-plus ms-3"></i></Link>
                       
                        <Nav.Link onClick={HandleLogOutUser}>Log Out <i className="fas fa-sign-out-alt ms-3"></i></Nav.Link>
                         
@@ -45,6 +52,9 @@ const Dashboard = () => {
                     <div>
                         
                         <Switch>
+                      <Route exact path={`${path}`}>
+                            <MyOrder/>
+                        </Route>
                       <Route path={`${path}/myorder`}>
                             <MyOrder/>
                         </Route>
@@ -56,6 +66,12 @@ const Dashboard = () => {
                         </Route>
                         <Route path={`${path}/addservice`}>
                             <AddCars/>
+                        </Route>
+                        <Route path={`${path}/manageallorders`}>
+                            <ManageAllOrders/>
+                        </Route>
+                        <Route path={`${path}/makeadmin`}>
+                            <MakeAdmin/>
                         </Route>
                         <Route path={`${path}/allservice`}>
                             <AllService/>

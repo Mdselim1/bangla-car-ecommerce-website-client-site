@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import Rating from 'react-rating';
 import { useParams } from 'react-router';
 import useAuth from '../../../context/useAuth';
 
@@ -46,7 +47,14 @@ const ProductCart = () => {
                     <div className="my-5 shadow-lg text-center single-product-box">
                 <img className="img-fluid mb-4 rounded p-1 border-primary border" src={car?.img} alt="" />
                 <h3>{car?.name}</h3>
-                <span>price : {car?.price} $</span>
+                            <h5>price : {car?.price} $</h5>
+                            <h6 className="my-2"><strong>Rating : </strong> 
+                    <Rating
+                    readonly
+                    initialRating={car?.rating}
+                    emptySymbol="far fa-star text-warning"
+                    fullSymbol="fas fa-star text-warning"
+                ></Rating></h6>
                 <h4>Detailes</h4>
                 <p>{car?.description}</p>
             </div>

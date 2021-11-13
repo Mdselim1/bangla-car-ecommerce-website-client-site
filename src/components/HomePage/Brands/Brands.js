@@ -9,9 +9,9 @@ import nissan from '../../img/brand/nissan.jpg';
 
 const Brands = () => {
     return (
-        <div className="py-5">
+        <div className="pt-2 pb-5">
             <Container>
-            <h1 className="text-center py-5 head-title text-dark">Our Products Brand</h1>
+            <h1 className="text-center py-5 head-title">Our Global Brands</h1>
                 <Row>
                     <Col lg={2} sm={12}>
                         <img src={bmw} className="img-fluid p-3" alt="" />

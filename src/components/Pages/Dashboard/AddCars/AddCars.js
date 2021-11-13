@@ -25,11 +25,12 @@ const AddCars = () => {
     
 
     return (
-        <div className="py-5 add-service-form">
-            <h1 className="main-title text-center pb-5">Add your Service</h1>
+        <div className="pt-2 pb-5 add-service-form">
+            <h1 className="text-center py-5 head-title">Add A Cars</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="Enter your car model name" {...register("name")} />
       <input placeholder="Enter your car price" {...register("price")} />
+      <input placeholder="Enter your product rating" {...register("rating")} />
                 <input placeholder="Enter your car img url" {...register("img")} />
                 <textarea placeholder="Enter your car details" {...register("description")} cols="10" rows="5"></textarea>
       <input type="submit" value="Add Car"/>
