@@ -14,7 +14,7 @@ const HomeProduct = ({product}) => {
                 <h3>{name}</h3>
                 <span>price : {price} $</span>
                 <h4>Detailes</h4>
-                <p>{description}</p>
+                <p>{description.slice(0 ,141)}</p>
                 <Link to={`/products/${_id}`} className="buy-now-btn text-decoration-none">Buy Now <i className="fas fa-shopping-cart ms-4"></i></Link>
             </div>
         </Col>

@@ -6,7 +6,8 @@ import './Header.css';
 
 const Header = () => {
 
-  const { user , HandleLogOutUser} = useAuth();
+  const { user, HandleLogOutUser } = useAuth();
+  
 
     return (
         <div>
@@ -19,12 +20,14 @@ const Header = () => {
       <Nav.Link as={Link} className="nav-item" to="/home">Home</Nav.Link>
                 <Nav.Link as={Link} className="nav-item" to="/products">Prouducts</Nav.Link>
                 {
-                  user.displayName ? <Nav.Link className="nav-item">{user.displayName}</Nav.Link>
-                    : ''
+                  user.email && <Nav.Link as={Link} className="nav-item" to="/dashboard">Dashboard</Nav.Link>
                 }
+                <Nav.Link className="nav-item">{user.displayName}</Nav.Link>
 
                 {
-                  user.email ? <Nav.Link className="nav-item" onClick={HandleLogOutUser}><i className="fas fa-sign-in-alt me-1"></i> Log Out</Nav.Link> : <>
+                  user.email ?
+                  
+                    <Nav.Link className="log-out" onClick={HandleLogOutUser}><i className="fas fa-sign-in-alt me-1"></i> Log Out</Nav.Link> : <>
                   <Nav.Link as={Link} className="nav-item" to="/login"><i className="fas fa-sign-in-alt me-1"></i> LogIn</Nav.Link>
       <Nav.Link as={Link} className="nav-item" to="/register"><i className="fas fa-user me-1"></i> Register</Nav.Link>
                   </>

@@ -4,21 +4,23 @@ import { useForm } from 'react-hook-form';
 import loginImg from '../../img/login.svg';
 import useAuth from '../../../context/useAuth.js';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link,useHistory,useLocation } from 'react-router-dom';
 
 const Login = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const { LogInEmailAndPassword ,error,setError,loader} = useAuth();
-
-    const HandleLogInSubmitForm = data => {
+    const { LogInEmailAndPassword, error, setError, loader } = useAuth();
+    
+    const history = useHistory();
+    const location = useLocation();
+    
+     const HandleLogInSubmitForm = data => {
         console.log(data);
         const email = data.email;
         const password = data.password;
-        LogInEmailAndPassword(email, password);
+        LogInEmailAndPassword(email, password,history,location );
         reset();
-        
-    };
+        };
 
     const HandleErrorRemove = () => {
         setError('')

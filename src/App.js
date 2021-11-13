@@ -8,6 +8,9 @@ import Header from './components/Shared/Header/Header';
 import AuthProvider from './context/AuthProvider';
 import Products from './components/Pages/Products/Products';
 import ProductCart from './components/Pages/ProductCart/ProductCart';
+import Footer from './components/Shared/Footer/Footer';
+import PrivateRoute from './components/Shared/PrivateRoute/PrivateRoute';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -24,9 +27,12 @@ function App() {
           <Route exact path="/products">
               <Products/>
           </Route>
-          <Route exact path="/products/:id">
+          <PrivateRoute exact path="/products/:id">
               <ProductCart/>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <Dashboard/>
+          </PrivateRoute>
         <Route path="/register">
           <Register/>
         </Route>
@@ -36,7 +42,8 @@ function App() {
         <Route path="*">
               <Notfound/>
         </Route>
-      </Switch>
+        </Switch>
+        <Footer/>
     </BrowserRouter>
     </AuthProvider>
   );

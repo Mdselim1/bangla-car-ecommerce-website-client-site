@@ -3,20 +3,20 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import RegisterImg from '../../img/register.svg';
 import useAuth from '../../../context/useAuth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link , useHistory} from 'react-router-dom';
 
 const Register = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const { error , setError,CreateUserEmailAndPassword,loader } = useAuth();
+    const { error, setError, registerUser, loader } = useAuth();
+    const history = useHistory();
 
     const HandelCreateUserForm = data => {
         
         const { name, email, password1, password2 } = data;
-        console.log(name, email, password1, password2);
         if (password2.length >= 6 && password1.length >= 6) {
             if (password1 === password2) {
-                CreateUserEmailAndPassword(name , email,password2)
+                registerUser(name , email,password2,history)
                 reset();
             } else {
                 setError('Password Did Not Match');
@@ -38,10 +38,10 @@ const Register = () => {
                         <h3 className="text-center log-title">Register User</h3>
                         <div className="p-4"  onBlur={HandleErrorRemove}>
                         <form className="input-form-box" onSubmit={handleSubmit(HandelCreateUserForm)}>
-                            <input type="text" placeholder="Enter your name" autoComplete="current-name" {...register('name')} />
-                            <input type="email" placeholder="Enter your email" autoComplete="current-password" {...register('email')} />
-                                <input type="password" placeholder="Enter your password" autoComplete="current-password"  {...register('password1')} />
-                                <input type="password" placeholder="Re-nter your password" autoComplete="current-password"  {...register('password2')} />
+                            <input type="text" placeholder="Enter your name" autoComplete="current-name" {...register('name')} required />
+                            <input type="email" placeholder="Enter your email" autoComplete="current-password" {...register('email')} required />
+                                <input type="password" placeholder="Enter your password" autoComplete="current-password"  {...register('password1')} required />
+                                <input type="password" placeholder="Re-nter your password" autoComplete="current-password"  {...register('password2')} required />
 
                                 <span className="text-danger">{error}</span>
                             <input type="submit" value="Register" />

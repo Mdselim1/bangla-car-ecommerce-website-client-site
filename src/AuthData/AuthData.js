@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword,sign
 import initializeAuthentication from '../components/FirebaseAuth/Firebase.initialize';
 import axios from 'axios';
 
+
 initializeAuthentication();
 
 const AuthData = () => {
@@ -11,43 +12,48 @@ const AuthData = () => {
     const [error, setError] = useState('');
     const [products, setProducts] = useState([]);
     const [loader, setLoader] = useState(false);
+      
 
     const auth = getAuth();
 
     // Create User System By Email And Password 
-    const CreateUserEmailAndPassword = (name, email, password) => {
-        setLoader(true);
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                updateProfile(auth.currentUser, {
-                    displayName: name
-                  }).then(() => {
-                    // Profile updated!
-                  }).catch((error) => {
-                    setError(error.message)
-                  });
-    // Signed in 
-    const user = userCredential.user;
-      setUser(user);
-      setError('');
-  })
-  .catch((error) => {
-    const errorMessage = error.message;
-      setError(errorMessage);
-  })
-        .finally(() => setLoader(false));
-    };
-
+    const registerUser = (name , email,password2,history) => {
+		setLoader(true);
+		createUserWithEmailAndPassword(auth, email, password2)
+			.then(() => {
+				setError("");
+				const newUser = { email, displayName: name };
+				setUser(newUser);
+				// send name to firebases
+				updateProfile(auth.currentUser, {
+					displayName: name,
+				})
+					.then(() => {
+						setError("");
+					})
+					.catch((error) => {
+						setError(error.message);
+					});
+				history.replace("/");
+			})
+			.catch((error) => {
+				setError(error.message);
+			})
+			.finally(() => setLoader(false));
+	};
     
 
     // Log In User System By Email And Password 
-    const LogInEmailAndPassword = (email, password) => {
+    const LogInEmailAndPassword = (email, password,history ,location) => {
         setLoader(true)
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
-            const user = userCredential.user;
-            setUser(user);
+            // const user = userCredential.user;
+            // setUser(user);
+            
+            const destination = location?.state?.from || '/';
+            history.replace(destination);
             setError('');
           })
           .catch((error) => {
@@ -61,16 +67,17 @@ const AuthData = () => {
     // On Auth State Change System Require 
     useEffect(() => {
         setLoader(true)
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser({})
-            }
-            setLoader(false)
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				// const uid = user.uid;
+				setUser(user);
+			} else {
+				setUser({});
+			}
+			setLoader(false);
         });
-        return ()=> unsubscribed;
-    },[])
+		return () => unsubscribe;
+	}, [auth]);
 
 
     // Log Out System 
@@ -84,6 +91,8 @@ const AuthData = () => {
             .finally(() => setLoader(false) )
 
     };
+
+   
 
     // Get Car Data Product From Database  
     useEffect(() => {
@@ -100,8 +109,8 @@ const AuthData = () => {
  
     return {
         LogInEmailAndPassword,
-        user, error, setError,products,
-        CreateUserEmailAndPassword,HandleLogOutUser,loader
+        user, error, setError,products,setLoader,
+        registerUser,HandleLogOutUser,loader
     }
 
 };

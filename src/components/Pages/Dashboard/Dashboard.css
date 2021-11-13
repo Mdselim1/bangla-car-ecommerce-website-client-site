@@ -1,0 +1,27 @@
+.dashboard-link
+{
+    text-align: center;
+    background: #3867d6;
+}
+.dashboard-link a
+{
+    font-size: 18px;
+    font-weight: 600px;
+    display: block;
+    text-decoration: none;
+    padding: 20px 0;
+    color: #fff;
+    border-top: 2px solid #ddd;
+}
+
+.dashboard-link a:hover{
+    background: #a55eea;
+}
+.my-or{
+    border-top: 0 !important;
+}
+
+.dash-title{
+    border-bottom: 2px solid #fff;
+    margin-bottom: 0;
+}
