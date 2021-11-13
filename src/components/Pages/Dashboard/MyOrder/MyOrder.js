@@ -26,7 +26,7 @@ const MyOrder = () => {
             <Container fluid>
             <Row>
                 {
-                   cars.map(car=><MyOrderSingle key={car._id} car={car}></MyOrderSingle>)     
+                   cars.map(car=><MyOrderSingle key={car._id} car={car} setCars={setCars} cars={cars}></MyOrderSingle>)     
                 }
             </Row>
             </Container>

@@ -8,7 +8,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     const { user, loader } = useAuth();
     
     console.log(user);
-
+    console.log(loader);
     if (loader) {
         return <div className="text-center" style={{margin:'200px 0'}}>
             <Spinner animation="border" variant="danger" />

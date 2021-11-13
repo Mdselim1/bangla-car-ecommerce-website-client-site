@@ -66,8 +66,9 @@ const AuthData = () => {
 
     // On Auth State Change System Require 
     useEffect(() => {
-        setLoader(true)
-		const unsubscribe = onAuthStateChanged(auth, (user) => {
+        
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setLoader(true)
 			if (user) {
 				// const uid = user.uid;
 				setUser(user);

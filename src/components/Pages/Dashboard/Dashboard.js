@@ -21,7 +21,7 @@ const Dashboard = () => {
     return (
         <div>
             <Row>
-                <Col lg={2}>
+                <Col lg={2} className="h-100">
                     <div className="dashboard-link border-end border-2 border-danger">
                         
                         <h1 className="dash-title text-white py-3">Dashboard</h1>
