@@ -56,3 +56,15 @@ ul li{
     background: olivedrab;
     color: #fff;
 }
+
+@media(max-width:600px){
+    .footer-head-title{
+        font-size: 18px;
+    }
+    .footer-list li{
+        font-size: 14px;
+    }
+    .footer-text p{
+        font-size: 14px;
+    }
+}

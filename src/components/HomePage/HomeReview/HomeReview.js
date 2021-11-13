@@ -8,7 +8,7 @@ const HomeReview = () => {
     const [ reviews, setReviews ] = useState([]);
     
     useEffect(() => {
-        axios.get('http://localhost:8000/review')
+        axios.get('https://dry-mesa-55750.herokuapp.com/review')
             .then(result => {
             setReviews(result.data);
             }).catch(error => {

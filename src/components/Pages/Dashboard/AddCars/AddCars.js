@@ -12,7 +12,7 @@ const AddCars = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:8000/cars', data)
+        axios.post('https://dry-mesa-55750.herokuapp.com/cars', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Car Add successfully');

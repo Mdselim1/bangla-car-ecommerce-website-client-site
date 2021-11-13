@@ -6,3 +6,9 @@
     font-weight: 600;
     color: #a55eea;
 }
+
+@media (max-width:600px){
+    .head-title{
+        font-size: 22px;
+    }
+}

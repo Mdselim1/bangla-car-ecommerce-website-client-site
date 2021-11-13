@@ -11,7 +11,7 @@ const Review = () => {
 
     const onSubmit = (data) => {
         data.email = user.email;
-        axios.post('http://localhost:8000/review', data)
+        axios.post('https://dry-mesa-55750.herokuapp.com/review', data)
             .then(result => {
                 if (result.data.insertedId) {
                     alert('Review Sumited Successfully');

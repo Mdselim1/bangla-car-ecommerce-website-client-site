@@ -8,7 +8,7 @@ const AllServiceSingle = ({ car,products ,setProducts}) => {
         console.log(id);
         const deletWant = window.confirm('Are You Sure You Want Delete');
         if (deletWant) {
-            axios.delete(`http://localhost:8000/cars/${id}`)
+            axios.delete(`https://dry-mesa-55750.herokuapp.com/cars/${id}`)
             .then(result => {
                 if (result.data.deletedCount) {
                     alert('Your Order Data Deleted Successfully');
@@ -27,7 +27,7 @@ const AllServiceSingle = ({ car,products ,setProducts}) => {
             <div className="mb-5 shadow-lg text-center single-product-box">
                 <img className="img-fluid mb-4 rounded p-1 border-primary border" src={car?.img} alt="" />
                 <h3>{car?.name}</h3>
-                <span>price : {car?.price } $</span>
+                <h5>price : {car?.price } $</h5>
                 <h4>Details</h4>
                 <p>{car?.description}</p>
                 <button className="common-button mt-4" onClick={()=>HandleDeleteService(car?._id)}>

@@ -8,6 +8,7 @@
 .single-product-box h3{
     color: #eb3b5a;
     font-weight: 500;
+    text-transform: capitalize;
 }
 .single-product-box h5{
     color: #ffffff;
@@ -48,4 +49,20 @@
 
 .buy-now-btn:hover{
     color: green;
+}
+
+@media(max-width:600px){
+    .buy-now-btn{
+        padding: 10px 0;
+        font-size: 16px;
+    }
+    .single-product-box h3{
+        font-size: 18px;
+    }
+    .single-product-box p{
+       font-size: 14px;
+    }
+    .single-product-box h4{
+        font-size: 16px;
+    }
 }

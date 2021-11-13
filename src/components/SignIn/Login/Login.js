@@ -27,10 +27,10 @@ const Login = () => {
     };
 
     return (
-        <div className="py-5 my-5">
+        <div className="py-3 my-5">
             <Container>
                 <Row className="align-items-center">
-                    <Col lg={6}>
+                    <Col lg={6} sm={12}>
                         <h3 className="text-center log-title">Log In User</h3>
                         <div className="p-4"  onBlur={HandleErrorRemove}>
                         <form className="input-form-box" onSubmit={handleSubmit(HandleLogInSubmitForm)}>

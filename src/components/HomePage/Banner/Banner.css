@@ -56,3 +56,22 @@
     color: #fff;
     background:coral;
 }
+
+@media (max-width:600px){
+    .cars-text-main h1{
+        font-size: 35px;
+    }
+    .cars-text-main h2{
+        font-size: 22px;
+    }
+    .cars-text-main p{
+        font-size: 14px;
+    }
+    .common-button{
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    .banner-right-img{
+        margin-top: 30px;
+    }
+}

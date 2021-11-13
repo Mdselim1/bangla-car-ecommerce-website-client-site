@@ -8,7 +8,7 @@ const MyOrderSingle = ({ car,setCars,cars }) => {
     const HandleDeleteOrder = id => {
         const deletWant = window.confirm('Are You Sure You Want Delete');
         if (deletWant) {
-            axios.delete(`http://localhost:8000/order/${id}`)
+            axios.delete(`https://dry-mesa-55750.herokuapp.com/order/${id}`)
             .then(result => {
                 if (result.data.deletedCount) {
                     alert('Your Order Data Deleted Successfully');
@@ -27,7 +27,7 @@ const MyOrderSingle = ({ car,setCars,cars }) => {
             <div className="mb-5 shadow-lg text-center single-product-box">
                 <img className="img-fluid mb-4 rounded p-1 border-primary border" src={car?.ordercar?.img} alt="" />
                 <h3>{car?.ordercar?.name}</h3>
-                <span>price : {car?.ordercar?.price } $</span>
+                <h5>price : {car?.ordercar?.price } $</h5>
                 <h4>Address</h4>
                 <p>Email : {car?.email}</p>
                 <p>Phone : {car?.phone}</p>

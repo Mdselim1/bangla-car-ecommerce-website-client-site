@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../context/useAuth';
 
 const ProductCart = () => {
@@ -11,12 +11,13 @@ const ProductCart = () => {
     const { id } = useParams();
     const [car, setCar] = useState({});
     const { register, handleSubmit,reset} = useForm();
+    const history = useHistory();
+    const { user } = useAuth();
 
-    const {user} = useAuth();
 
     useEffect(() => {
       
-        axios.get(`http://localhost:8000/cars/${id}`)
+        axios.get(`https://dry-mesa-55750.herokuapp.com/cars/${id}`)
             .then(result => {
                 setCar(result.data);
             })
@@ -28,11 +29,11 @@ const ProductCart = () => {
 
     const HandleOrderSubmit = data => {
         data.ordercar = car;
-        console.log(data);
-        axios.post('http://localhost:8000/order', data)
+        axios.post('https://dry-mesa-55750.herokuapp.com/order', data)
             .then(result => {
                 if (result.data.insertedId) {
                     alert('Your Order Submitted Succesfully');
+                    history.replace('/dashboard/myorder');
                     reset();
                 }
             })

@@ -1,12 +1,21 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
+  
     
     const MakeAdmin = data => {
         console.log(data);
+        axios.put('https://dry-mesa-55750.herokuapp.com/users/admin', data)
+            .then(result => {
+                if (result.data.modifiedCount) {
+                    alert('Make Admin Succesfully');
+                    reset();
+            }
+        })
     };
 
     return (

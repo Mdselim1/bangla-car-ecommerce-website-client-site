@@ -12,7 +12,7 @@ const MyOrder = () => {
     
     useEffect(() => {
         
-        axios.get(`http://localhost:8000/order/?email=${user.email}`)
+        axios.get(`https://dry-mesa-55750.herokuapp.com/order/email/?email=${user.email}`)
             .then(result => {
                 setCars(result.data);
             });

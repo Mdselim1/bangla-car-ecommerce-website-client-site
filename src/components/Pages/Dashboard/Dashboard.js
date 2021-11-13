@@ -20,7 +20,8 @@ const Dashboard = () => {
 
     const { path, url } = useRouteMatch();
 
-    const { HandleLogOutUser } = useAuth();
+    const { HandleLogOutUser, admin } = useAuth();
+    console.log(admin);
 
     return (
         <div>
@@ -29,20 +30,29 @@ const Dashboard = () => {
                     <div className="dashboard-link border-end border-2 border-danger">
                         
                         <h1 className="dash-title text-white py-3">Dashboard</h1>
-                       
+                    
+                        {
+                            !admin && <>
+                                   
                     <Link className="my-or" to={`${url}/myorder`}>My Order <i className="fas fa-cart-plus ms-3"></i></Link>
                        
                        <Link to={`${url}/pay`}>Pay <i className="fab fa-cc-amazon-pay ms-3"></i></Link>
                       
                         <Link to={`${url}/review`}>Review <i className="fas fa-eye ms-3"></i></Link>
+                            </>
+                        }
                         
-                        <Link to={`${url}/allservice`}>Manage Products <i className="fas fa-tasks ms-3"></i></Link>
+                        {
+                            admin &&<>
+                            <Link to={`${url}/allservice`}>Manage Products <i className="fas fa-tasks ms-3"></i></Link>
                         
                         <Link to={`${url}/makeadmin`}>Make Admin <i className="fas fa-marker ms-3"></i></Link>
                         
                         <Link to={`${url}/manageallorders`}>Manage All Orders <i className="fas fa-tasks ms-3"></i></Link>
                         
                        <Link to={`${url}/addservice`}>Add A Product <i className="fas fa-plus ms-3"></i></Link>
+                       </>
+                        }
                       
                        <Nav.Link onClick={HandleLogOutUser}>Log Out <i className="fas fa-sign-out-alt ms-3"></i></Nav.Link>
                         
