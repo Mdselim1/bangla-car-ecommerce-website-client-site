@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAuth, signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut , updateProfile,onAuthStateChanged} from "firebase/auth";
 import initializeAuthentication from '../components/FirebaseAuth/Firebase.initialize';
 import axios from 'axios';
@@ -49,9 +49,8 @@ const AuthData = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
-            // const user = userCredential.user;
-            // setUser(user);
-            
+            const user = userCredential.user;
+                       
             const destination = location?.state?.from || '/';
             history.replace(destination);
             setError('');
@@ -109,7 +108,7 @@ const AuthData = () => {
     }, []);
  
     return {
-        LogInEmailAndPassword,
+        LogInEmailAndPassword,setProducts,
         user, error, setError,products,setLoader,
         registerUser,HandleLogOutUser,loader
     }

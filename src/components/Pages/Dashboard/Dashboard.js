@@ -9,6 +9,8 @@ import Payment from './Payment/Payment';
 import Review from './Review/Review';
 import './Dashboard.css';
 import useAuth from '../../../context/useAuth';
+import AddCars from './AddCars/AddCars';
+import AllService from '../../HomePage/HomeProducts/AllService/AllService';
 
 
 
@@ -30,7 +32,10 @@ const Dashboard = () => {
                        
                        <Link to={`${url}/pay`}>Pay <i className="fab fa-cc-amazon-pay ms-3"></i></Link>
                       
-                       <Link to={`${url}/review`}>Review <i className="fas fa-eye ms-3"></i></Link>
+                        <Link to={`${url}/review`}>Review <i className="fas fa-eye ms-3"></i></Link>
+                        
+                       <Link to={`${url}/allservice`}>All Service <i className="fas fa-plus ms-3"></i></Link>
+                       <Link to={`${url}/addservice`}>Add Service <i className="fas fa-plus ms-3"></i></Link>
                       
                        <Nav.Link onClick={HandleLogOutUser}>Log Out <i className="fas fa-sign-out-alt ms-3"></i></Nav.Link>
                         
@@ -48,6 +53,12 @@ const Dashboard = () => {
                         </Route>
                         <Route path={`${path}/review`}>
                             <Review/>
+                        </Route>
+                        <Route path={`${path}/addservice`}>
+                            <AddCars/>
+                        </Route>
+                        <Route path={`${path}/allservice`}>
+                            <AllService/>
                         </Route>
                     </Switch>
                    
