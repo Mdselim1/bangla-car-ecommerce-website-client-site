@@ -1,33 +1,34 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
-import ReviewHome from './ReviewHome/ReviewHome';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
+import ReviewHome from "./ReviewHome/ReviewHome";
 
 const HomeReview = () => {
+  const [reviews, setReviews] = useState([]);
 
-    const [ reviews, setReviews ] = useState([]);
-    
-    useEffect(() => {
-        axios.get('https://dry-mesa-55750.herokuapp.com/review')
-            .then(result => {
-            setReviews(result.data);
-            }).catch(error => {
-            console.log(error.message);
-        })
-    },[])
+  useEffect(() => {
+    axios
+      .get("https://bangla-car-server.up.railway.app/review")
+      .then((result) => {
+        setReviews(result.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
 
-    return (
-        <div>
-            <h1 className="text-center py-5 head-title">Our Customar Review</h1>
-            <Container>
-                <Row>
-                    {
-                      reviews.map(review=><ReviewHome key={review._id} review={review}></ReviewHome>)  
-                    }
-                </Row>
-            </Container>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className="text-center py-5 head-title">Our Customar Review</h1>
+      <Container>
+        <Row>
+          {reviews.map((review) => (
+            <ReviewHome key={review._id} review={review}></ReviewHome>
+          ))}
+        </Row>
+      </Container>
+    </div>
+  );
 };
 
 export default HomeReview;

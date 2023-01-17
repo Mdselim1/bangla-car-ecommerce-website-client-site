@@ -1,11 +1,13 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import { Redirect, Route } from 'react-router';
-import useAuth from '../../../context/useAuth';
+import useFirebase from '../../../AuthData/useFirebase';
+
 
 const PrivateRoute = ({ children, ...rest }) => {
     
-    const { user, loader } = useAuth();
+    const { user, loader } = useFirebase();
+    
     
     if (loader) {
         return <div className="text-center" style={{margin:'200px 0'}}>
@@ -18,7 +20,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         <Route
             {...rest}
             render={({ location }) => 
-                user?.email ? children
+               user?.email ? children
                     : (<Redirect
                             to={{
                                 pathname: "/login",

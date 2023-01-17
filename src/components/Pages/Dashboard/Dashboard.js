@@ -21,7 +21,6 @@ const Dashboard = () => {
     const { path, url } = useRouteMatch();
 
     const { HandleLogOutUser, admin } = useAuth();
-    console.log(admin);
 
     return (
         <div>
@@ -62,9 +61,14 @@ const Dashboard = () => {
                     <div>
                         
                         <Switch>
-                      <Route exact path={`${path}`}>
+                            {
+                                admin ?<Route exact path={`${path}`}>
+                                        <AllService></AllService>
+                        </Route> :
+                                    <Route exact path={`${path}`}>
                             <MyOrder/>
-                        </Route>
+                                </Route> 
+                      }
                       <Route path={`${path}/myorder`}>
                             <MyOrder/>
                         </Route>
